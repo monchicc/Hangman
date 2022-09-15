@@ -22,11 +22,13 @@ def main():
                 guess = input("Enter a letter: ").lower()
 
             else:
+                # to check if the letter has been guessed before or not
                 while guess in letterGuessed:
                     print("You guessed this letter already. Please try another one")
                     guess = input("Enter a letter: ").lower()
 
                 else:
+                    #to check if the guessed letter is in the secret word or not
                     if guess in secretWord:
                         print(
                             f"Correct! There is one or more {guess} in the secret word.")
@@ -39,6 +41,7 @@ def main():
                     letterGuessed = letterGuessed + guess
                     wrongLetterCount = 0
 
+                    #to print out the current status of the secret word with correctly guessed letter(s)
                     for letter in secretWord:
                         if letter in letterGuessed:
                             print(f"{letter}", end="")
@@ -54,6 +57,13 @@ def main():
         else:
             print("Sorry! You lose!")
         playAgain = input("Do you want to play again? Y/N\n").lower()
+        while (playAgain not in ("y","n")):
+            print("Invalid input! Please enter Y for continuing the game and N for exit.")
+            playAgain = input("Do you want to play again? Y/N\n").lower()
+        if playAgain == "y":
+            playAgain == "y"
+        elif playAgain == "n":
+            break
 
    
 
