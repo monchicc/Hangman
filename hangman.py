@@ -4,19 +4,20 @@ import re
 
 def main():
     playAgain = "y"
+    # loop is used so the player can choose to play another time or not after one game
     while playAgain == "y":
         secretWord = random.choice(
             ["apple", "japan", "curious", "onepiece", "fortune"])
 
         letterGuessed = ""
-
+        
         failureCount = len(secretWord)
 
         print(f"Welcome to the hangman! You have {failureCount} chances to fail!")
 
         while failureCount > 0:
             guess = (input("Enter a letter: ").lower())
-            # to check the input is valid or not
+            # to check if the input is valid or not
             while not (re.search("[a-zA-Z]", guess)) or not (len(guess) == 1):
                 print("Incorrect input! Please input one character from a to z.")
                 guess = input("Enter a letter: ").lower()
